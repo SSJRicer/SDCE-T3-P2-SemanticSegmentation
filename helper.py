@@ -15,9 +15,14 @@ import shutil
 import zipfile
 import time
 import tensorflow as tf
+import cv2
 from glob import glob
 from urllib.request import urlretrieve
 from tqdm import tqdm
+
+# OUTPUT COLOR FORMATS:
+REG = "\033[m"
+BOLD_GREEN = '\033[1;32;m'
 
 
 class DLProgress(tqdm):
@@ -59,6 +64,7 @@ def maybe_download_pretrained_vgg(data_dir):
 		os.makedirs(vgg_path)
 
 		# Download vgg
+		print(BOLD_GREEN, end='')
 		print('Downloading pre-trained vgg model...')
 		with DLProgress(unit='B', unit_scale=True, miniters=1) as pbar:
 			urlretrieve(
@@ -68,6 +74,7 @@ def maybe_download_pretrained_vgg(data_dir):
 
 		# Extract vgg
 		print('Extracting model...')
+		print(REG)
 		zip_ref = zipfile.ZipFile(os.path.join(vgg_path, vgg_filename), 'r')
 		zip_ref.extractall(data_dir)
 		zip_ref.close()
@@ -169,8 +176,12 @@ def save_inference_samples(runs_dir, data_dir, sess, image_shape, logits, keep_p
 	os.makedirs(output_dir)
 
 	# Run NN on test images and save them to HD
-	print('Training Finished. Saving test images to: {}'.format(output_dir))
+	print(BOLD_GREEN, end='')
+	print('Saving test images to: {}'.format(output_dir))
 	image_outputs = gen_test_output(
 		sess, logits, keep_prob, input_image, os.path.join(data_dir, 'data_road/testing'), image_shape)
 	for name, image in image_outputs:
 		scipy.misc.imsave(os.path.join(output_dir, name), image)
+
+	print('----Test images saved!')
+	print(REG)
