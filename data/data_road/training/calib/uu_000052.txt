@@ -1,0 +1,100 @@
+
+as_tr_cpp="eval sed 'y%*$as_cr_letters%P$as_cr_LETTERS%;s%[^_$as_cr_alnum]%_%g'"
+
+# Sed expression to map a string onto a valid variable name.
+as_tr_sh="eval sed 'y%*+%pp%;s%[^_$as_cr_alnum]%_%g'"
+
+SHELL=${CONFIG_SHELL-/bin/sh}
+
+
+test -n "$DJDIR" || exec 7<&0 </dev/null
+exec 6>&1
+
+# Name of the host.
+# hostname on some systems (SVR3.2, old GNU/Linux) returns a bogus exit status,
+# so uname gets run too.
+ac_hostname=`(hostname || uname -n) 2>/dev/null | sed 1q`
+
+#
+# Initializations.
+#
+ac_default_prefix=/usr/local
+ac_clean_files=
+ac_config_libobj_dir=.
+LIBOBJS=
+cross_compiling=no
+subdirs=
+MFLAGS=
+MAKEFLAGS=
+
+# Identity of this package.
+PACKAGE_NAME='pocketsphinx'
+PACKAGE_TARNAME='pocketsphinx'
+PACKAGE_VERSION='5prealpha'
+PACKAGE_STRING='pocketsphinx 5prealpha'
+PACKAGE_BUGREPORT=''
+PACKAGE_URL=''
+
+# Factoring default headers for most tests.
+ac_includes_default="\
+#include <stdio.h>
+#ifdef HAVE_SYS_TYPES_H
+# include <sys/types.h>
+#endif
+#ifdef HAVE_SYS_STAT_H
+# include <sys/stat.h>
+#endif
+#ifdef STDC_HEADERS
+# include <stdlib.h>
+# include <stddef.h>
+#else
+# ifdef HAVE_STDLIB_H
+#  include <stdlib.h>
+# endif
+#endif
+#ifdef HAVE_STRING_H
+# if !defined STDC_HEADERS && defined HAVE_MEMORY_H
+#  include <memory.h>
+# endif
+# include <string.h>
+#endif
+#ifdef HAVE_STRINGS_H
+# include <strings.h>
+#endif
+#ifdef HAVE_INTTYPES_H
+# include <inttypes.h>
+#endif
+#ifdef HAVE_STDINT_H
+# include <stdint.h>
+#endif
+#ifdef HAVE_UNISTD_H
+# include <unistd.h>
+#endif"
+
+ac_subst_vars='am__EXEEXT_FALSE
+am__EXEEXT_TRUE
+LTLIBOBJS
+LIBOBJS
+SPHINXBASE_SWIG
+SPHINXBASE_LIBS
+SPHINXBASE_CFLAGS
+GST_PLUGIN_LDFLAGS
+plugindir
+GST_LIBS
+GST_CFLAGS
+GST_MAJORMINOR
+BUILD_GST_FALSE
+BUILD_GST_TRUE
+GStreamer_LIBS
+GStreamer_CFLAGS
+PKG_CONFIG
+BUILD_SWIG_FALSE
+BUILD_SWIG_TRUE
+SWIG_LIB
+SWIG
+PYTHON_EXTRA_LDFLAGS
+PYTHON_EXTRA_LIBS
+PYTHON_SITE_PKG
+PYTHON_LDFLAGS
+PYTHON_CPPFLAGS
+pkgpyexecdir
